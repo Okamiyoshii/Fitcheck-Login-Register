@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="register.js>" defer type ="module"></script>
+    <title>Signup and Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="absolute">
+        <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div>
+        <div class="bg-shape1 bg-primary opacity-50 bg-blur"></div>
+        <div class="bg-shape1 bg-purple opacity-50 bg-blur"></div>
+    </div>
+
+    <div class="container">
+        <div class="form-card" id="loginCard">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don’t have an account? <a href="#" id="showSignup">Sign Up</a></p>
+        </div>
+
+        <div class="form-card hidden" id="signupCard">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        const loginCard = document.getElementById("loginCard");
+        const signupCard = document.getElementById("signupCard");
+        const showSignup = document.getElementById("showSignup");
+        const showLogin = document.getElementById("showLogin");
+        const loginForm = document.getElementById("loginForm");
+
+        showSignup.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginCard.classList.add("hidden");
+            signupCard.classList.remove("hidden");
+        });
+
+        showLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            signupCard.classList.add("hidden");
+            loginCard.classList.remove("hidden");
+        });
+
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault(); 
+            
+            loginCard.classList.add("fadeOut");
+
+
+            setTimeout(() => {
+                window.location.href = "Wardrobe/index.html";  
+            }, 500); 
+        });
+    </script>
+</body>
+</html>
